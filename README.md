@@ -11,9 +11,9 @@ Elle permet :
 
 ### Choix technologiques
 
-Backend: Java/SringBoot
-Frontend: React Js
-BDD: PostgreSQL
+* Backend: Java/SringBoot
+* Frontend: React Js
+* BDD: PostgreSQL
 
 ## Prérequis
 
