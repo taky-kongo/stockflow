@@ -1,9 +1,7 @@
 package com.stockflow.backend.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +25,8 @@ public class Produit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Pattern(regexp = "[A-Z]{3}-\\d{4}$", message = "Le SKU doit suivre le format AMI-0001")
+    @Column(nullable = false, unique = true)
     private String sku;
 
     @NotBlank(message = "Le nom est obligatoire")
@@ -36,19 +36,19 @@ public class Produit {
     private String categorie;
 
     @Positive(message = "Le prix doit être positif")
-    @NotBlank(message = "Le prix unitaire est obligatoire")
+    @NotNull(message = "Le prix unitaire est obligatoire")
     private BigDecimal prixUnitaire;
 
     @PositiveOrZero(message = "La valeur doit être positive ou égale à 0")
-    @NotBlank(message = "La quantité du stock est obligatoire")
+    @NotNull(message = "La quantité du stock est obligatoire")
     private Integer quantiteStock;
 
     @PositiveOrZero(message = "La valeur doit être positive ou égale à 0")
-    @NotBlank(message = "Le seuil est obligatoire")
+    @NotNull(message = "Le seuil est obligatoire")
     private Integer seuilAlerte;
 
-    @NotBlank(message = "l'id de boutique est obligatoire")
-    private Integer boutiqueId;
+    @NotNull(message = "l'id de boutique est obligatoire")
+    private Long boutiqueId;
 
     @CreatedDate
     @Column(updatable = false, nullable = false)
@@ -57,6 +57,4 @@ public class Produit {
     @LastModifiedDate
     @Column(updatable = false, nullable = false)
     private LocalDateTime dateModification;
-
-    private Boolean enAlerte;
 }
