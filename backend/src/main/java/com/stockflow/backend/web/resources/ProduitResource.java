@@ -38,12 +38,12 @@ public class ProduitResource {
 
     @PostMapping
     @Operation(summary = "Crée un nouveau produit avec génération du sku")
-    public ResponseEntity<ProduitDTO> saveProduit(@RequestBody ProduitDTO produitDTO) {
+    public ResponseEntity<?> saveProduit(@RequestBody ProduitDTO produitDTO) {
         try {
             ProduitDTO produitSave = produitService.save(produitDTO);
             return new ResponseEntity<>(produitSave, HttpStatus.CREATED);
         } catch (RuntimeException e) {
-            return new ResponseEntity<>(null, HttpStatus.CONFLICT);
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
         }
     }
 

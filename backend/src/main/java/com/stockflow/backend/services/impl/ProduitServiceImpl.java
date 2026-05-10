@@ -47,10 +47,14 @@ public class ProduitServiceImpl implements ProduitService {
     @Transactional
     public ProduitDTO save(ProduitDTO dto) {
         String prefix = "MAL";
-        long count = produitRepository.countAllProduit();
-        String suffix = String.format("%04d", count);
+        long nextSuffix = produitRepository.count() + 1;
+        String sku = String.format("%s-%04d", prefix, nextSuffix);
 
-        dto.setSku(prefix + "-" + suffix);
+        if (produitRepository.existsBySku(sku)) {
+            sku = prefix + "-" + System.currentTimeMillis() % 10000;
+        }
+
+        dto.setSku(sku);
         if (produitRepository.findBySku(dto.getSku()).isPresent()) {
             throw new RuntimeException("Le SKU " + dto.getSku() + " existe déjà.");
         }

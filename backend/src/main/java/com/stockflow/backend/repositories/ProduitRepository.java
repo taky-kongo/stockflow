@@ -11,5 +11,5 @@ public interface ProduitRepository extends JpaRepository<Produit, Long>, JpaSpec
 
     List<Produit> findAllByBoutiqueId(Long boutiqueId);
     Optional<Produit> findBySku(String sku);
-    long countAllProduit();
+    boolean existsBySku(String sku);
 }
