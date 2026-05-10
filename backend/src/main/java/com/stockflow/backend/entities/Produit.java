@@ -26,7 +26,7 @@ public class Produit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Pattern(regexp = "[A-Z]{3}-\\d{4}$", message = "Le SKU doit suivre le format AMI-0001")
+    @Pattern(regexp = "^MAL-\\d{4}$", message = "Le SKU doit suivre le format AMI-0001")
     @Column(nullable = false, unique = true)
     private String sku;
 
@@ -58,6 +58,9 @@ public class Produit {
     @LastModifiedDate
     @Column(updatable = false, nullable = false)
     private LocalDateTime dateModification;
+
+    @Enumerated(EnumType.STRING)
+    private StatutProduit statut;
 
     public StatutProduit calculerStatutProduit() {
         if (this.quantiteStock == 0) {

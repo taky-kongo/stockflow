@@ -1,5 +1,6 @@
 package com.stockflow.backend.services.dto;
 
+import com.stockflow.backend.entities.enums.StatutProduit;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class ProduitDTO {
     private Long boutiqueId;
     private LocalDateTime dateCreation;
     private LocalDateTime dateModification;
+    private StatutProduit statut;
 
     public boolean isEnAlerte() {
         return this.seuilAlerte > 0 && this.quantiteStock < this.seuilAlerte;
