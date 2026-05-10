@@ -1,5 +1,6 @@
 package com.stockflow.backend.entities;
 
+import com.stockflow.backend.entities.enums.StatutProduit;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
@@ -57,4 +58,14 @@ public class Produit {
     @LastModifiedDate
     @Column(updatable = false, nullable = false)
     private LocalDateTime dateModification;
+
+    public StatutProduit calculerStatutProduit() {
+        if (this.quantiteStock == 0) {
+            return StatutProduit.RUPTURE;
+        } else if (this.quantiteStock <= this.seuilAlerte) {
+            return StatutProduit.ALERTE;
+        } else {
+            return StatutProduit.OK;
+        }
+    }
 }
