@@ -2,6 +2,7 @@ package com.stockflow.backend.entities;
 
 import com.stockflow.backend.entities.enums.StatutCommande;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -40,7 +41,8 @@ public class Commande {
     private StatutCommande statut = StatutCommande.EN_ATTENTE;
 
     @Column(nullable = false)
-    @NotBlank(message = "La de livraison est obligatoire")
+    @NotNull(message = "La de livraison est obligatoire")
+    @Future(message = "La date de livraison doit être dans le futur")
     private LocalDate dateLivraisonPrevue;
 
     @NotNull(message = "l'id de boutique est obligatoire")

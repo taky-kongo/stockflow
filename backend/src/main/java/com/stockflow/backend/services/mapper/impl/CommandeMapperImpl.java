@@ -1,6 +1,7 @@
 package com.stockflow.backend.services.mapper.impl;
 
 import com.stockflow.backend.entities.Commande;
+import com.stockflow.backend.entities.LigneCommande;
 import com.stockflow.backend.services.dto.CommandeRequestDto;
 import com.stockflow.backend.services.dto.CommandeResponseDto;
 import com.stockflow.backend.services.dto.LigneCommandeResponseDto;
@@ -23,6 +24,17 @@ public class CommandeMapperImpl implements CommandeMapper {
         commande.setFournisseurContact(dto.getFournisseurContact());
         commande.setDateLivraisonPrevue(dto.getDateLivraisonPrevue());
         commande.setBoutiqueId(dto.getBoutiqueId());
+
+        if (dto.getLignes() != null) {
+            dto.getLignes().forEach(ligneDto -> {
+                LigneCommande ligne = new LigneCommande();
+                ligne.setProduitId(ligneDto.getProduitId());
+                ligne.setQuantiteCommandee(ligneDto.getQuantiteCommandee());
+                ligne.setPrixAchatUnitaire(ligneDto.getPrixAchatUnitaire());
+
+                commande.addLigne(ligne);
+            });
+        }
         return commande;
     }
 
@@ -34,6 +46,10 @@ public class CommandeMapperImpl implements CommandeMapper {
         dto.setFournisseurNom(entity.getFournisseurNom());
         dto.setStatut(entity.getStatut());
         dto.setBoutiqueId(entity.getBoutiqueId());
+        dto.setDateLivraisonPrevue(entity.getDateLivraisonPrevue());
+        dto.setFournisseurContact(entity.getFournisseurContact());
+        dto.setDateCreation(entity.getDateCreation());
+        dto.setDateLivraisonReelle(entity.getDateLivraisonReelle());
 
         if (entity.getLignes() != null) {
             dto.setLignes(entity.getLignes().stream().map(ligne -> {

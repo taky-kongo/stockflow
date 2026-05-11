@@ -64,7 +64,7 @@ public class CommandeServiceImpl implements CommandeService {
     @Override
     @Transactional
     public CommandeResponseDto changeStatut(Long id, StatutCommande nouveauStatut) {
-        Commande commande = commandeRepository.findById(id)
+        Commande commande = commandeRepository.findByIdWithLignes(id)
                 .orElseThrow(() -> new IllegalArgumentException("Commande non trouvée"));
 
         StatutCommande statutActuel = commande.getStatut();

@@ -1,5 +1,6 @@
 package com.stockflow.backend.services.dto;
 
+import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +21,7 @@ public class CommandeRequestDto {
     private String fournisseurContact;
 
     @NotNull(message = "La date de livraison prévue est obligatoire")
+    @Future(message = "La date de livraison doit être dans le futur")
     private LocalDate dateLivraisonPrevue;
 
     @NotNull(message = "L'ID de la boutique est obligatoire")
