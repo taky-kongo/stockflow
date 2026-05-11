@@ -4,6 +4,7 @@ import com.stockflow.backend.entities.enums.StatutProduit;
 import com.stockflow.backend.services.ProduitService;
 import com.stockflow.backend.services.dto.ProduitDTO;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/produits")
+@Tag(name = "Produits", description = "Gestion des produits")
 public class ProduitResource {
 
     private final ProduitService produitService;
@@ -23,7 +25,7 @@ public class ProduitResource {
     public ResponseEntity<List<ProduitDTO>> getAllProduits(
             @RequestParam(required = false) String categorie,
             @RequestParam(required = false) StatutProduit statut,
-            @RequestParam Long boutiqueId
+            @RequestParam (required = false) Long boutiqueId
     ) {
         return ResponseEntity.ok(produitService.findAll(categorie, statut, boutiqueId));
     }
