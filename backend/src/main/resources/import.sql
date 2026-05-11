@@ -1,0 +1,28 @@
+-- 1. PRODUITS (Inclusion des colonnes obligatoires : date_creation, date_modification, statut)
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (1, 'Split Smart Inverter 1.5 CV', 'MAL-1001', 'Electronique', 12, 5, 245000, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (2, 'Televiseur LED 43 Pouces', 'MAL-1002', 'Electronique', 3, 5, 185000, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'ALERTE');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (3, 'Refrigerateur Combine 250L', 'MAL-1003', 'Electronique', 8, 3, 310000, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (4, 'Ventilateur de table Binatone', 'MAL-1004', 'Electronique', 0, 5, 25000, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'RUPTURE');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (5, 'Fer a repasser a vapeur', 'MAL-ELE-1005', 'Electronique', 15, 5, 18000, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (6, 'Sac de Riz Papillon 25kg', 'MAL-2001', 'Alimentation', 50, 10, 19500, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (7, 'Huile Dinor 5L', 'MAL-2002', 'Alimentation', 4, 10, 5500, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'ALERTE');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (8, 'Carton de Pates Maman 5kg', 'MAL-2003', 'Alimentation', 25, 5, 4500, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (9, 'Sucre Roux SOSUCO 1kg', 'MAL-2004', 'Alimentation', 100, 20, 950, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (10, 'Lait en poudre Bonnet Rouge', 'MAL-2005', 'Alimentation', 0, 10, 2800, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'RUPTURE');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (11, 'Savon BF 200g (Lot de 10)', 'MAL-3001', 'Beaute', 40, 15, 3500, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (12, 'Lait de corps Sivop', 'MAL-3002', 'Beaute', 8, 10, 2500, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'ALERTE');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (13, 'Dentifrice Close Up 75ml', 'MAL-3003', 'Beaute', 60, 20, 800, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (14, 'Shampoing Garnier Fructis', 'MAL-3004', 'Beaute', 12, 5, 4500, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+INSERT INTO produit (id, nom, sku, categorie, quantite_stock, seuil_alerte, prix_unitaire, boutique_id, date_creation, date_modification, statut) VALUES (15, 'Gel Douche Cottage', 'MAL-3005', 'Beaute', 20, 5, 3800, 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, 'OK');
+
+-- 2. COMMANDES
+INSERT INTO commande (id, fournisseur_nom, fournisseur_contact, statut, date_livraison_prevue, boutique_id, date_creation) VALUES (1, 'Ets Coulibaly et Fils', '0707080910', 'LIVREE', '2026-05-01', 1, CURRENT_TIMESTAMP);
+INSERT INTO commande (id, fournisseur_nom, fournisseur_contact, statut, date_livraison_prevue, boutique_id, date_creation) VALUES (2, 'SOCIDA Distribution', '0102030405', 'CONFIRMEE', '2026-05-20', 1, CURRENT_TIMESTAMP);
+INSERT INTO commande (id, fournisseur_nom, fournisseur_contact, statut, date_livraison_prevue, boutique_id, date_creation) VALUES (3, 'PROSUMA GRP', '2720212223', 'EN_ATTENTE', '2026-05-25', 1, CURRENT_TIMESTAMP);
+INSERT INTO commande (id, fournisseur_nom, fournisseur_contact, statut, date_livraison_prevue, boutique_id, date_creation) VALUES (4, 'SIVOP CI', '0505060708', 'ANNULEE', '2026-05-05', 1, CURRENT_TIMESTAMP);
+
+-- 3. LIGNES DE COMMANDES
+INSERT INTO ligne_commande (id, commande_id, produit_id, quantite_commandee, prix_achat_unitaire) VALUES (1, 1, 1, 5, 210000);
+INSERT INTO ligne_commande (id, commande_id, produit_id, quantite_commandee, prix_achat_unitaire) VALUES (2, 2, 2, 10, 160000);
+INSERT INTO ligne_commande (id, commande_id, produit_id, quantite_commandee, prix_achat_unitaire) VALUES (3, 3, 6, 20, 17500);
+INSERT INTO ligne_commande (id, commande_id, produit_id, quantite_commandee, prix_achat_unitaire) VALUES (4, 4, 12, 50, 2000);
