@@ -20,5 +20,5 @@ public class CommandeResponseDto {
     private Long boutiqueId;
     private LocalDateTime dateCreation;
     private LocalDateTime dateLivraisonReelle;
-    private List<LigneCommandeDto> lignes;
+    private List<LigneCommandeResponseDto> lignes;
 }
