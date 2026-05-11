@@ -22,3 +22,31 @@ export interface DashboardData {
     commandesEnRetard: number;
     commandesRecentes: any[];
 }
+
+export type StatutProduit = 'OK' | 'ALERTE' | 'RUPTURE';
+
+export interface Produit {
+    id: number;
+    nom: string;
+    sku: string;
+    categorie: string;
+    quantiteStock: number;
+    seuilAlerte: number;
+    prixUnitaire: number;
+    statut: StatutProduit;
+}
+
+export interface LigneCommande {
+    produitId: number;
+    produitNom?: string; // Optionnel pour l'affichage
+    quantiteCommandee: number;
+    prixAchatUnitaire: number;
+}
+
+export interface CommandeRequest {
+    fournisseurNom: string;
+    fournisseurContact: string;
+    dateLivraisonPrevue: string;
+    boutiqueId: number;
+    lignes: LigneCommande[];
+}
