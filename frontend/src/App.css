@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #0f172a; /* Slate 900 */
+  --color-brand-accent: #3b82f6;  /* Blue 500 */
+}
