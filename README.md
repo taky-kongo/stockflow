@@ -11,8 +11,8 @@ Elle permet :
 
 ### Choix technologiques
 
-* Backend: Java/SringBoot
-* Frontend: React Js
+* Backend: Java/SpringBoot pour sa robustesse et sa faciliter avec l'achitecture en couches
+* Frontend: React Js, pratique et rapide à utiliser pour ce genre de projet
 * BDD: PostgreSQL
 
 ## Prérequis
@@ -24,6 +24,7 @@ Elle permet :
 
 ## Installation et lancement
 
+Démarrer docker d'abord
 D'abord lancer le backend depuis son IDE
 cd stockflow/frontend
 npm install
