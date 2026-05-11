@@ -1,5 +1,7 @@
 package com.stockflow.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.stockflow.backend.entities.enums.StatutCommande;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
@@ -55,6 +57,7 @@ public class Commande {
     private LocalDateTime dateLivraisonReelle;
 
     @OneToMany(mappedBy = "commande", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<LigneCommande> lignes = new ArrayList<>();
 
     public void addLigne(LigneCommande ligne)  {

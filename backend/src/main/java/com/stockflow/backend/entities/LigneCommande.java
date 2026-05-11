@@ -1,5 +1,6 @@
 package com.stockflow.backend.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
@@ -22,6 +23,7 @@ public class LigneCommande {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "commande_id")
+    @JsonBackReference
     private Commande commande;
 
     @Column(nullable = false)
