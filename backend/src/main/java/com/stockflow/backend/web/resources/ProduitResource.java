@@ -16,6 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/api/produits")
 @Tag(name = "Produits", description = "Gestion des produits")
+@CrossOrigin(origins = "*")
 public class ProduitResource {
 
     private final ProduitService produitService;

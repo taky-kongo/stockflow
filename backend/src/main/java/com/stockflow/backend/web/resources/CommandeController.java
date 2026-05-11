@@ -18,6 +18,7 @@ import java.util.Map;
 @RequestMapping("/api/commandes")
 @RequiredArgsConstructor
 @Tag(name = "Commandes", description = "Gestion du réapprovisionnement fournisseur")
+@CrossOrigin(origins = "*")
 public class CommandeController {
 
     private final CommandeService commandeService;
